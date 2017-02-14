@@ -1,0 +1,64 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# leaderboard
+
+Stores players scores and sorts them in a leaderboard
+
+## Users [/users/{id}]
+
+### Retrieves a player's data with the score [GET]
+
++ Response 200 (application/json)
+
+        {
+            "name": "rawrcrush",
+            "score": 500
+        }
+        
+### Stores player's new score [POST]
+
++ Request (application/json)
+
+        {
+            "score": 1000
+        }
+
++ Response 200
+
+## User leaderboard [/leaderboard/{id}]
+
+### Retrieves a player's leaderboard position [GET]
+
++ Response 200 (application/json)
+
+        {
+            "position": 1
+        }
+        
+## Global leaderboard [/leaderboard{?pageSize,page}]
+
+### Retrives paged leaderboard starting from the first player [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "position": 1,
+                "id": "HFG0555",
+                "name": "rawrcrush",
+                "score": 500
+            },
+            {
+                "position": 2,
+                "id": "HFG0555",
+                "name": "rawrcrush",
+                "score": 500
+            },
+            {
+                "position": 3,
+                "id": "HFG0555",
+                "name": "rawrcrush",
+                "score": 500
+            }
+        ]
